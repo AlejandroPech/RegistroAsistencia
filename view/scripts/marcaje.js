@@ -2,9 +2,10 @@ let DTImages;
 let sfecha = "";
 //Función que se ejecuta al inicio
 function init() {
-    document.getElementById("Images").hidden = true;
+    document.getElementById("Marcajes").hidden = true;
     mostrarform(false);
 }
+
 //Función mostrar formulario
 function mostrarform(flag) {
     //limpiar();
@@ -23,11 +24,17 @@ function mostrarform(flag) {
 
 //Función Listar
 function listar() {
-    sfecha = document.getElementById("fechaInicial").value;
+    let oJsonPost = {};
+    let sParamName = null;
+    $("div#div-inputs input[data-id]").each(function (index) {
+        if (this.value == "") return;
+        sParamName = this.id;
+        oJsonPost[sParamName] = this.value
+    });// fin:each()
     $.ajax({
-        url: "../controller/facial.php?op=getFaciales"
+        url: "../controller/facial.php?op=getMarcajes"
         , type: "post"
-        , data: { "startTime": sfecha }
+        , data: oJsonPost
         , beforeSend: function (request) {
             $.blockUI({ message: '<div class="spinner-border text-primary" role="status"></div><h3>Un momento por favor...</h3>' });
         }
@@ -44,7 +51,7 @@ function listar() {
                 return;
             }
 
-            DTImages = $('table#tbl-Images').dataTable({
+            DTMarcajes = $('table#tbl-Marcaje').dataTable({
                 "processing": true,//Activamos el procesamiento del datatables
                 "serverSide": false,//Paginación y filtrado realizados por el servidor
                 dom: 'Bfrtip',//Definimos los elementos del control de tabla
@@ -73,34 +80,33 @@ function listar() {
                 },
                 "columnDefs": [
                     { "name": "name", "data": "name", "className": "text-center", "targets": 0 }
-                    , { "name": "dtFecha", "data": "dtFecha", "className": "text-center", "targets": 1 }
-                    , { "name": "iIp", "data": "iIp", "className": "text-center", "targets": 2 }
-                    , { "name": "path", "data": "path", "className": "", "targets": 3, "visible": false }
+                    , { "name": "date", "data": "date", "className": "text-center", "targets": 1 }
+                    , { "name": "ip", "data": "ip", "className": "text-center", "targets": 2 }
+                    , { "name": "path", "data": "path", "className": "text-center", "targets": 3, "visible": false }
                     , {
                         "name": "sAcciones", "data": "sAcciones", "className": "", "targets": 4,
                         render: function (data, type, row, meta) {
                             return type === 'display' ?
-                                `<button onclick="fnDescargarImagen('${row.path}','${row.name}')" class="btn update btn-primary select-item"><i class="mdi mdi-file-image"></i> Imagen</button>` : data;
+                                `<button onclick="fnDescargarImagen('${row.path}','${row.name}')" class="btn update btn-primary"><i class="mdi mdi-file-image"></i> Imagen</button>` : data;
                         }
                     }
                 ],
             }).DataTable();
-            document.getElementById("Images").hidden = false;
-            DTImages.clear().draw();
+            document.getElementById("Marcajes").hidden = false;
+            DTMarcajes.clear().draw();
             $.each(jresult.data, function (_index, _oData) {
-                DTImages.row.add({
+                DTMarcajes.row.add({
                     "name": _oData.name
-                    , "dtFecha": _oData.date
-                    , "iIp": _oData.ip
+                    , "date": _oData.date
+                    , "ip": _oData.ip
                     , "path": _oData.path
                     , "sAcciones": ""
                 });
             });
-            DTImages.draw();
-            DTImages.columns.adjust().draw();
+            DTMarcajes.draw();
+            DTMarcajes.columns.adjust().draw();
         },
         error: function (xhrCS, statusCS) {
-            $.unblockUI();
             console.log(e.responseText);
         }
     });

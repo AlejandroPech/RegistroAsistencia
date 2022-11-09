@@ -80,6 +80,7 @@
 <script src="scripts/librerias/mdb.min.js"></script>
 <script src="scripts/librerias/choices.min.js"></script>
 <script src="scripts/librerias/bootstrap-select.min.js"></script>
+<script src="scripts/librerias/jquery.blockUI.js"></script>
 <!-- finde de la importada los botones datatable
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 <script src="../plantilla/plugins/sweetalert2/sweetalert2.min.js"></script>

@@ -132,24 +132,17 @@ switch ($_GET["op"]){
 	        $_SESSION['imagen']=$fetch->imagen;
 	        $_SESSION['login']=$fetch->login;
 			$_SESSION['clave']=$fetch->clave;
-			$_SESSION['idmedico']=$fetch->idmedico;
 
 	        //Obtenemos los permisos del usuario
 	    	$marcados = $usuario->listarmarcados($fetch->idusuario);
 
 	    	//Declaramos el array para almacenar todos los permisos marcados
 			$valores=array();
-// var_dump($marcados->fetch_object());
-// die(0);
 			//Almacenamos los permisos marcados en el array
 			while ($per = $marcados->fetch_object())
-				{
-					$_SESSION[strtolower($per->nombre)] = 1;
-				}
-
-					
-			// entre a la reunion en meet
-			
+			{
+				$_SESSION[strtolower($per->nombre)] = 1;
+			}
 	    }
 	    $respuestajson = json_encode($fetch);
 

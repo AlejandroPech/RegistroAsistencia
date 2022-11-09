@@ -15,6 +15,19 @@ if (isset($_SESSION["facial"]) &&  $_SESSION['facial'] == 1)
 ?>
 <br>
 <!--Contenido-->
+<div class="modal fade" id="divmodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center modal-titulo">Aviso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div><!-- fin:[div#ModalAlertas] -->
 <div class="content-wrapper">
   <section class="content">
     <div class="col-12 row" style="display: flex; justify-content: space-around; align-items: center;"  >
@@ -28,6 +41,7 @@ if (isset($_SESSION["facial"]) &&  $_SESSION['facial'] == 1)
             <button onclick="listar();" class="btn btn-primary">Consultar</button>
         </div>
     </div>
+    <br />
     <div id="Images" hidden>
         <div class="table-responsive" data-topline="1">
                 <table style="background: transparent;" width='100%' id='tbl-Images' class='table dt-responsive responsive'>
