@@ -1,0 +1,15 @@
+{
+    "iAddSeconds": 20,
+    "sDirectorioBase": "\\\\aafy-dpechc\\Compartido\\repo\\facial",
+    "sDirHistoriales": "\\\\aafy-dpechc\\Compartido\\repo\\backup",
+    "oListIp": [
+        {"name": "AAFY",                  "ip": "192.168.19.83:8090"},
+        {"name": "AAFY Auditoria",        "ip": "192.168.19.43:8090"},
+        {"name": "Centro de Servicios",   "ip": "192.168.185.52:8090"},
+        {"name": "Centro",                "ip": "192.168.1.150:8090"}
+    ],
+    "ilengthPost": 250,
+    "iMinIntervaloFechas": 120,
+    "pass": "2024",
+    "username": "admin"
+}
