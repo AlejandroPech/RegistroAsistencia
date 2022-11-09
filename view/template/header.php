@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="css/cssAdicionales/mdb.min.css" />
   <link rel="stylesheet" href="css/cssAdicionales/choices.min.css">
   <link rel="stylesheet" href="css/cssAdicionales/bootstrap-select.css" />
-  <link rel="manifest" href="scripts/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <script type="text/javascript">
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js");
