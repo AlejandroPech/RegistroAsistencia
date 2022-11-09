@@ -6,14 +6,21 @@ $("#frmAcceso").on('submit', function (e) {
     $.post("../controller/usuario.php?op=verificar",
         { "logina": logina, "clavea": clavea },
         function (data) {
+            
+        }).done(function(data) {
             if (data == 2) {
-               Swal.fire("Mensaje de Error", "Credenciales Incorrectas", "error");
-                //$(location).attr("href", "home.php");
-               
-            }else {
-             
-                $(location).attr("href", "escritorio.php");
-            }
-        });
+                Swal.fire("Mensaje de Error", "Credenciales Incorrectas", "error");
+                 //$(location).attr("href", "home.php");
+                
+             }else {
+              
+                 $(location).attr("href", "escritorio.php");
+             }
+          })
+          .fail(function(error) {
+            alert( "error" );
+          })
+        
+        ;
 }) 
 
