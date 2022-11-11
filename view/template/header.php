@@ -137,7 +137,7 @@
             <?php
               if (isset($_SESSION['escritorio']) && $_SESSION['escritorio'] == 1) {
                 echo '<li class="nav-item">
-                  <a href="../escritorio.php" class="nav-link active">
+                  <a href="./escritorio.php" class="nav-link active">
                   <i class="nav-icon fas fa-columns"></i>
                     <p>
                       Escritorio 
@@ -161,13 +161,13 @@
                   </a>
                   <ul class="nav nav-treeview" style="display: none;">
                     <li class="nav-item">
-                      <a href="categoria.php" class="nav-link">
+                      <a href="./categoria.php" class="nav-link">
                         <i class="far fa-check-circle nav-icon"></i>
                         <p>Categorias</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="informatica.php" class="nav-link">
+                      <a href="./informatica.php" class="nav-link">
                       <i class="far fa-check-circle nav-icon"></i>
                         <p>Informatica</p>
                       </a>
@@ -180,7 +180,7 @@
             <?php
               if (isset($_SESSION['compras']) && $_SESSION['compras'] == 1) {
                 echo '<li class="nav-item">
-                  <a href="../view/compras.php" class="nav-link active">
+                  <a href="./compras.php" class="nav-link active">
                   <i class="nav-icon fas fa-columns"></i>
                     <p>
                       Compras 
@@ -193,7 +193,7 @@
             <?php
               if (isset($_SESSION['recursoshumanos']) && $_SESSION['recursoshumanos'] == 1) {
                 echo '<li class="nav-item">
-                  <a href="../view/rrhh.php" class="nav-link active">
+                  <a href="./rrhh.php" class="nav-link active">
                   <i class="nav-icon fas fa-columns"></i>
                     <p>
                       Recursos Humanos 
@@ -217,13 +217,13 @@
                   </a>
                   <ul class="nav nav-treeview" style="display: none;">
                     <li class="nav-item">
-                      <a href="usuarios.php" class="nav-link">
+                      <a href="./usuarios.php" class="nav-link">
                         <i class="far fa-check-circle nav-icon"></i>
                         <p>Usuarios</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="permisos.php" class="nav-link">
+                      <a href="./permisos.php" class="nav-link">
                       <i class="far fa-check-circle nav-icon"></i>
                         <p>Permisos</p>
                       </a>
@@ -236,7 +236,7 @@
             <?php
               if (isset($_SESSION['ayuda']) && $_SESSION['ayuda'] == 1) {
                 echo '<li class="nav-item">
-                  <a href="../view/rrhh.php" class="nav-link active">
+                  <a href="./rrhh.php" class="nav-link active">
                   <i class="nav-icon fas fa-columns"></i>
                     <p>
                       Ayuda 
@@ -249,7 +249,7 @@
             <?php
               if (isset($_SESSION['facial']) && $_SESSION['facial'] == 1) {
                 echo '<li class="nav-item">
-                <a href="../view/facial.php" class="nav-link active">
+                <a href="./facial.php" class="nav-link active">
                 <i class="nav-icon fas fa-columns"></i>
                   <p>
                     Facial
@@ -262,7 +262,7 @@
             <?php
               if (isset($_SESSION['marcaje']) && $_SESSION['marcaje'] == 1) {
                 echo '<li class="nav-item">
-                  <a href="../view/marcaje.php" class="nav-link active">
+                  <a href="./marcaje.php" class="nav-link active">
                   <i class="nav-icon fas fa-columns"></i>
                     <p>
                       Marcaje
