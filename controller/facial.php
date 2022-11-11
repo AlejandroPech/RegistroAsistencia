@@ -1,5 +1,5 @@
 <?php
-$container      = json_decode(@file_get_contents($_SERVER["DOCUMENT_ROOT"] . "./view/scripts/config.json"),true);
+$container      = json_decode(@file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/view/scripts/config.json"),true);
 switch ($_GET["op"]) {
     case 'getFaciales':
         $oParsedBody    = $_POST["startTime"];

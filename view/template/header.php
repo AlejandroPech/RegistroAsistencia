@@ -146,63 +146,6 @@
                 </li>';
               }
             ?>
-
-            <?php
-              if (isset($_SESSION['informatica']) && $_SESSION['informatica'] == 1) {
-                echo '<li class="nav-item">
-                  <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-key">
-                    </i>
-                    <p>
-                      Informatica
-                      <i class="fas fa-angle-left right"></i>
-                      
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview" style="display: none;">
-                    <li class="nav-item">
-                      <a href="./categoria.php" class="nav-link">
-                        <i class="far fa-check-circle nav-icon"></i>
-                        <p>Categorias</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="./informatica.php" class="nav-link">
-                      <i class="far fa-check-circle nav-icon"></i>
-                        <p>Informatica</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>';
-              }
-            ?>
-
-            <?php
-              if (isset($_SESSION['compras']) && $_SESSION['compras'] == 1) {
-                echo '<li class="nav-item">
-                  <a href="./compras.php" class="nav-link active">
-                  <i class="nav-icon fas fa-columns"></i>
-                    <p>
-                      Compras 
-                    </p>
-                  </a>
-                </li>';
-              }
-            ?>
-
-            <?php
-              if (isset($_SESSION['recursoshumanos']) && $_SESSION['recursoshumanos'] == 1) {
-                echo '<li class="nav-item">
-                  <a href="./rrhh.php" class="nav-link active">
-                  <i class="nav-icon fas fa-columns"></i>
-                    <p>
-                      Recursos Humanos 
-                    </p>
-                  </a>
-                </li>';
-              }
-            ?>
-
             <?php
               if (isset($_SESSION['acceso']) && $_SESSION['acceso'] == 1) {
                 echo '<li class="nav-item">
