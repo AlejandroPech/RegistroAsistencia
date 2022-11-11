@@ -25,19 +25,21 @@ switch ($_GET["op"]){
 			$ext = explode(".", $_FILES["imagen"]["name"]);
 			if ($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png")
 			{
-				$imagen = round(microtime(true)) . '.' . end($ext);
-				move_uploaded_file($_FILES["imagen"]["tmp_name"], "../files/usuarios/" . $imagen);
+				$imagedata = file_get_contents($_FILES["imagen"]['tmp_name']);
+				$base64 = base64_encode($imagedata);
+				// $imagen = round(microtime(true)) . '.' . end($ext);
+				// move_uploaded_file($_FILES["imagen"]["tmp_name"], "data:image/png;base64, " . $imagen);
 			}
 		}
 		//Hash SHA256 en la contraseña
 		$clavehash=hash("SHA256",$clave);
 
 		if (empty($idusuario)){
-			$rspta=$usuario->insertar($nombre,$telefono,$email,$cargo,$login,$clavehash,$imagen,$_POST['permiso']);
+			$rspta=$usuario->insertar($nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$_POST['permiso']);
 			echo $rspta ? 1 : 2;
 		}
 		else {
-			$rspta=$usuario->editar($idusuario,$nombre,$telefono,$email,$cargo,$login,$clavehash,$imagen,$_POST['permiso']);
+			$rspta=$usuario->editar($idusuario,$nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$_POST['permiso']);
 			echo $rspta ? 3 : 4;
 		}
 	break;
@@ -73,7 +75,7 @@ switch ($_GET["op"]){
  				"2"=>$reg->telefono,
  				"3"=>$reg->email,
  				"4"=>$reg->login,
- 				"5"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >",
+ 				"5"=>"<img src='data:image/png;base64, ".$reg->imagen."' height='50px' width='50px' >",
  				"6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
  				'<span class="label bg-red">Desactivado</span>'
  				);

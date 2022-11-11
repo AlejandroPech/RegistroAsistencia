@@ -187,7 +187,7 @@ function mostrar(idusuario) {
         $("#login").val(data.login);
         $("#clave").val(data.clave);
         $("#imagenmuestra").show();
-        $("#imagenmuestra").attr("src", "../files/usuarios/" + data.imagen);
+        $("#imagenmuestra").attr("src", "data:image/png;base64, " + data.imagen);
         $("#imagenactual").val(data.imagen);
         $("#idusuario").val(data.idusuario);
 

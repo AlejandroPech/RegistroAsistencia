@@ -90,13 +90,13 @@
       </ul>
       <div class="dropdown">
         <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img id="img_nav" style="width: 28px;" class="img-circle elevation-2" src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>">
+          <img id="img_nav" style="width: 28px;" class="img-circle elevation-2" src="data:image/png;base64, <?php echo $_SESSION['imagen']; ?>">
           <strong><span class="hidden-xs text-primary"><?php echo $_SESSION['nombre']; ?></span></strong>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li class="user-header">
             <div class="image">
-              <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>" class="img-circle elevation-2" alt="User Image" style="height:200px; width:200px;">
+              <img src="data:image/png;base64, <?php echo $_SESSION['imagen']; ?>" class="img-circle elevation-2" alt="User Image" style="height:200px; width:200px;">
             </div>
             <div class="text-center">
               <strong><a href="#" class="d-block"><?php echo $_SESSION['nombre']; ?></a></strong>
@@ -125,7 +125,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>" class="img-circle elevation-2" alt="User Image">
+            <img src="data:image/png;base64, <?php echo $_SESSION['imagen']; ?>" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block"><?php echo $_SESSION['nombre']; ?></a>
