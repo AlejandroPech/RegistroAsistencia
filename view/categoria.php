@@ -3,9 +3,12 @@
 ob_start();
 session_start();
 
-if (!isset($_SESSION["nombre"])) {
-    header("Location: ./login.html");
-} else {
+if (!isset($_SESSION["nombre"]))
+{
+  header("Location: ./login.html");
+}
+else
+{
     require 'template/header.php';
 
     if (isset($_SESSION["informatica"]) && $_SESSION['informatica'] == 1) {
