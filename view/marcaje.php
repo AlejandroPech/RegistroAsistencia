@@ -10,7 +10,7 @@ if (!isset($_SESSION["nombre"]))
 else
 {
 require 'template/header.php';
-if (isset($_SESSION["facial"]) &&  $_SESSION['facial'] == 1)
+if (isset($_SESSION["marcaje"]) &&  $_SESSION['marcaje'] == 1)
 {
 ?>
 <br>

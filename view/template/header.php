@@ -137,7 +137,7 @@
             <?php
               if (isset($_SESSION['escritorio']) && $_SESSION['escritorio'] == 1) {
                 echo '<li class="nav-item">
-                  <a href="../view/escritorio.php" class="nav-link active">
+                  <a href="../escritorio.php" class="nav-link active">
                   <i class="nav-icon fas fa-columns"></i>
                     <p>
                       Escritorio 
