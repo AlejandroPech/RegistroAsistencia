@@ -116,7 +116,7 @@ switch ($_GET["op"]){
 	case 'verificar':
 		$logina=$_POST['logina'];
 	    $clavea=$_POST['clavea'];
-
+		$valor = [];
 	    //Hash SHA256 en la contraseña
 		$clavehash=hash("SHA256",$clavea);
 
@@ -142,6 +142,7 @@ switch ($_GET["op"]){
 			while ($per = $marcados->fetch_object())
 			{
 				$_SESSION[strtolower($per->nombre)] = 1;
+				array_push($valor,strtolower($per->nombre));
 			}
 	    }
 	    $respuestajson = json_encode($fetch);
@@ -149,7 +150,7 @@ switch ($_GET["op"]){
 		if($respuestajson == "null"){
 			echo 2;
 		}else{
-			echo 1;
+			echo json_encode($valor);;
 		}
 
 
