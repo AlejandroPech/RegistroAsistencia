@@ -14,7 +14,7 @@ $("#frmAcceso").on('submit', function (e) {
                 
              }else {
               
-                 $(location).attr("href", "escritorio.php");
+                 $(location).attr("href", "../escritorio.php");
              }
           })
           .fail(function(error) {
