@@ -103,6 +103,9 @@ Class Usuario
 		return ejecutarConsulta($sql);		
 	}
 
+	public function selectHorario(){
+		$sql="SELECT idusuario, concat(nombre,' ',cargo) as nombres  FROM usuario where condicion=1;";
+		return ejecutarConsulta($sql);	
+	}
 }
-
 ?>
