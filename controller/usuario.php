@@ -13,36 +13,31 @@ $login=isset($_POST["login"])? limpiarCadena($_POST["login"]):"";
 $clave=isset($_POST["clave"])? limpiarCadena($_POST["clave"]):"";
 $imagen=isset($_POST["imagen"])? limpiarCadena($_POST["imagen"]):"";
 $numEmpleado=isset($_POST["num_usuario"])? limpiarCadena($_POST["num_usuario"]):"";
-$horaEntrada=isset($_POST["hora_entrada"])? limpiarCadena($_POST["hora_entrada"]).":00":"";
-$horaSalida=isset($_POST["hora_salida"])? limpiarCadena($_POST["hora_salida"]).":00":"";
-
+$horaEntrada=isset($_POST["hora_entrada"])? limpiarCadena($_POST["hora_entrada"]).":00":"null";
+$horaSalida=isset($_POST["hora_salida"])? limpiarCadena($_POST["hora_salida"]).":00":"null";
+$permisos=isset($_POST['permiso'])? $_POST['permiso']:[];
+$base64 = "";
 switch ($_GET["op"]){
 	case 'guardaryeditar':
 
-		if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name']))
-		{
-			$imagen=$_POST["imagenactual"];
-		}
-		else 
+		if (!file_exists($_FILES['imagen']['tmp_name']) && is_uploaded_file($_FILES['imagen']['tmp_name']))
 		{
 			$ext = explode(".", $_FILES["imagen"]["name"]);
 			if ($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png")
 			{
 				$imagedata = file_get_contents($_FILES["imagen"]['tmp_name']);
 				$base64 = base64_encode($imagedata);
-				// $imagen = round(microtime(true)) . '.' . end($ext);
-				// move_uploaded_file($_FILES["imagen"]["tmp_name"], "data:image/png;base64, " . $imagen);
 			}
 		}
 		//Hash SHA256 en la contraseña
 		$clavehash=hash("SHA256",$clave);
 
 		if (empty($idusuario)){
-			$rspta=$usuario->insertar($nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$_POST['permiso'],$numEmpleado,$horaEntrada,$horaSalida);
+			$rspta=$usuario->insertar($nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$permisos,$numEmpleado,$horaEntrada,$horaSalida);
 			echo $rspta ? 1 : 2;
 		}
 		else {
-			$rspta=$usuario->editar($idusuario,$nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$_POST['permiso'],$numEmpleado,$horaEntrada,$horaSalida);
+			$rspta=$usuario->editar($idusuario,$nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$permisos,$numEmpleado,$horaEntrada,$horaSalida);
 			echo $rspta ? 3 : 4;
 		}
 	break;

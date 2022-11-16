@@ -13,6 +13,10 @@ Class Usuario
 	//Implementamos un método para insertar registros
 	public function insertar($nombre,$telefono,$email,$cargo,$login,$clave,$imagen,$permisos,$codigousuario,$horainicio,$horafin)
 	{
+		$sql = " select * from usuario u 
+		where nombre = '$nombre' || login = '$login'";
+		$oUsuario = ejecutarConsulta($sql);
+		if($oUsuario->fetch_object() != null) return false;
 		$sql="INSERT INTO usuario (nombre,telefono,email,cargo,login,clave,imagen,condicion,num_usuario,hora_entrada,hora_salida)
 		VALUES ('$nombre','$telefono','$email','$cargo','$login','$clave','$imagen','1','$codigousuario','$horainicio','$horafin')";
 		//return ejecutarConsulta($sql);
@@ -34,6 +38,11 @@ Class Usuario
 	//Implementamos un método para editar registros
 	public function editar($idusuario,$nombre,$telefono,$email,$cargo,$login,$clave,$imagen,$permisos,$codigousuario,$horainicio,$horafin)
 	{
+		$sql = " select * from usuario u 
+		where nombre = '$nombre' || login = '$login'";
+		$oUsuario = ejecutarConsulta($sql)->fetch_object();
+		if($oUsuario != null && $oUsuario->idusuario != $idusuario) return false;
+
 		$sql="UPDATE usuario SET nombre='$nombre',telefono='$telefono',email='$email',cargo='$cargo',login='$login',clave='$clave',imagen='$imagen',num_usuario='$codigousuario',hora_entrada='$horainicio',hora_salida='$horafin' WHERE idusuario='$idusuario'";
 		ejecutarConsulta($sql);
 

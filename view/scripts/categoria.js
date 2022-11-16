@@ -70,12 +70,12 @@ function listar()
                     {
                         extend: 'print',
                         text: 'IMPRIMIR',
-                        title: 'Categorías del Sistema  BYTE SEVEN'
+                        title: 'Categorías de Aafy'
                     },
                     {
                         extend: 'pdf',
                         text: 'DESCARGAR PDF',
-                        title: 'Categorías del Sistema BYTE SEVEN'
+                        title: 'Categorías de Aafy'
                     },
 		        ],
 		"ajax":

@@ -72,19 +72,19 @@ function listar() {
             [ '5 filas','10 filas', '25 filas', '50 filas', 'Mostrar todo' ]
         ],
         buttons: [
-                  {
+                    {
                         extend: 'pageLength',
                         text: 'LONGITUD DE LA PÁGINA',
-                   },
+                    },
                     {
                         extend: 'print',
-                        text: 'IMPRIMIR',
-                        title: 'Usuarios BYTE SEVEN'
+                        text: '<i class="fa fa-solid fa-print"></i> IMPRIMIR',
+                        title: 'Usuarios AAFY'
                     },
                     {
                         extend: 'pdf',
-                        text: 'DESCARGAR PDF',
-                        title: 'Usuarios BYTE SEVEN'
+                        text: '<i class="fa fa-solid fa-file-pdf"></i> DESCARGAR PDF',
+                        title: 'Usuarios AAFY'
                     },
 		        ],
         "ajax": {
@@ -135,8 +135,9 @@ function guardaryeditar(e) {
                     title: 'Usuario registrado',
                     showConfirmButton: false,
                     timer: 1500
-                })
-
+                });
+                mostrarform(false);
+                tabla.ajax.reload();
             } else if (datos == 3) {
                 console.log(datos);
                 Swal.fire({
@@ -145,7 +146,9 @@ function guardaryeditar(e) {
                     title: 'Usuario actualizado',
                     showConfirmButton: false,
                     timer: 1500
-                })
+                });
+                mostrarform(false);
+                tabla.ajax.reload();
             } else if (datos == 2) {
                 Swal.fire({
                     position: 'top-end',
@@ -153,7 +156,8 @@ function guardaryeditar(e) {
                     title: 'No se pudo registrar',
                     showConfirmButton: false,
                     timer: 1500
-                })
+                });
+                $("#btnGuardar").prop("disabled", false);
             }else if (datos == 4){
                 Swal.fire({
                     position: 'top-end',
@@ -161,10 +165,10 @@ function guardaryeditar(e) {
                     title: 'No se pudo actualizar',
                     showConfirmButton: false,
                     timer: 1500
-                })
+                });
+                $("#btnGuardar").prop("disabled", false);
             }
-            mostrarform(false);
-            tabla.ajax.reload();
+            
         }
 
     });

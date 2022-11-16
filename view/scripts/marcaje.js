@@ -56,9 +56,21 @@ function listar() {
                 "serverSide": false,//Paginación y filtrado realizados por el servidor
                 dom: 'Bfrtip',//Definimos los elementos del control de tabla
                 buttons: [
-                    'excelHtml5',
-                    'pdf',
-                    'print'
+                    {
+                        extend: 'excelHtml5',
+                        text: '<i class="fa fa-solid fa-file-excel"></i> Excel',
+                        title: 'Marcajes AAFY'
+                    },
+                    {
+                        extend: 'pdf',
+                        text: '<i class="fa fa-solid fa-file-pdf"></i> DESCARGAR PDF',
+                        title: 'Marcajes AAFY'
+                    },
+                    {
+                        extend: 'print',
+                        text: '<i class="fa fa-solid fa-print"></i> IMPRIMIR',
+                        title: 'Marcajes AAFY'
+                    }
                 ],
                 "bDestroy": true,
                 "pageLength": 10,//Paginación

@@ -30,7 +30,7 @@ if (!isset($_SESSION["nombre"])) {
 
       //Establecemos los datos de la empresa
       $alerta = "Esto no es una Factura";
-      $empresa = "BYTE SEVEN";
+      $empresa = "Aafy";
      
 
       $mensaje = "Brilla contigo en el trabajo y estudio";
