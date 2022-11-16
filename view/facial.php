@@ -48,9 +48,9 @@ if (isset($_SESSION["facial"]) &&  $_SESSION['facial'] == 1)
                     <thead>
                         <tr style="color:#fffff; background: transparent;" id="">
                             <th>idhorario</th>
-                            <th>num_usuario</th>
-                            <th>fecha_registro</th>
-                            <th>ubicacion</th>
+                            <th>Folio</th>
+                            <th>Fecha de Registro</th>
+                            <th>Ubicación</th>
                             <th></th>
                         </tr>
                     </thead>

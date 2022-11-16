@@ -54,6 +54,7 @@ function listar() {
     tabla = $('#tbllistado').dataTable({
         /*"scrollY": 200,  navegar en el datatable
         "scrollX": true, */
+        "language": { "sUrl": "./js/dataTables_Espanol.json" },
         "paging": true,
         "lengthChange": true,
         "searching": true,
@@ -97,19 +98,7 @@ function listar() {
         },
         "bDestroy": true,
         "iDisplayLength": 20, //Paginación
-        "order": [[0, "desc"]], //Ordenar (columna,orden)
-        language: {
-            zeroRecords: 'No hay registros para mostrar.',
-            info: "Mostrando página _PAGE_ de _PAGES_ páginas",
-            search: 'BUSCAR',
-            emptyTable: 'La tabla está vacia.',
-            "oPaginate": {
-            "sFirst":    "Primero",
-            "sLast":     "Ultimo",
-            "sNext":     "Siguiente",
-            "sPrevious": "Anterior",
-            }
-        }
+        "order": [[0, "desc"]] //Ordenar (columna,orden)
     }).DataTable();
 }
 

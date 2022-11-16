@@ -52,6 +52,7 @@ function listar() {
             }
 
             DTMarcajes = $('table#tbl-Marcaje').dataTable({
+                "language": { "sUrl": "./js/dataTables_Espanol.json" },
                 "processing": true,//Activamos el procesamiento del datatables
                 "serverSide": false,//Paginación y filtrado realizados por el servidor
                 dom: 'Bfrtip',//Definimos los elementos del control de tabla
@@ -76,17 +77,6 @@ function listar() {
                 "pageLength": 10,//Paginación
                 "responsive": true,
                 "order": [[0, "desc"]],//Ordenar (columna,orden)
-                language: {
-                    zeroRecords: 'No hay registros para mostrar.',
-                    search: 'BUSCAR',
-                    emptyTable: 'La tabla está vacia.',
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Ultimo",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    }
-                },
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },

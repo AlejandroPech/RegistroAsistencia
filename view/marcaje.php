@@ -33,15 +33,15 @@ if (isset($_SESSION["marcaje"]) &&  $_SESSION['marcaje'] == 1)
         <div id="div-filtros"><h5 style="margin-bottom: 20px;">Marcajes</h5>
             <div id="div-inputs" class="text-center row col-12 ">
                 <div style="margin-bottom: 5px;" class="col-md-4 col-sm-12">
-                    <input class="col-md-6" rows="1" value="personId" style="background-color: #ffffff;"readonly="readonly" disabled="disabled" />
+                    <input class="col-md-6" rows="1" value="Folio" style="background-color: #ffffff;"readonly="readonly" disabled="disabled" />
                     <input class="col-md-6" type="text" id="personId" data-id="personId" value="" />
                 </div>
                 <div style="margin-bottom: 5px;" class="col-md-4 col-sm-12">
-                    <input class="col-md-6" rows="1" value="startTime" style="background-color: #ffffff;"readonly="readonly" disabled="disabled" />
+                    <input class="col-md-6" rows="1" value="Fecha Inicio" style="background-color: #ffffff;"readonly="readonly" disabled="disabled" />
                     <input class="col-md-6" type="date" id="startTime" data-id="startTime" value="" />
                 </div>
                 <div style="margin-bottom: 5px;" class="col-md-4 col-sm-12">
-                    <input class="col-md-6" rows="1" value="endTime" style="background-color: #ffffff;"readonly="readonly" disabled="disabled" />
+                    <input class="col-md-6" rows="1" value="Fecha Fin" style="background-color: #ffffff;"readonly="readonly" disabled="disabled" />
                     <input class="col-md-6" type="date" id="endTime" data-id="endTime" value="" />
                 </div>
             </div>
@@ -57,10 +57,10 @@ if (isset($_SESSION["marcaje"]) &&  $_SESSION['marcaje'] == 1)
                         <thead>
                             <tr style="color:#fffff; background: transparent;" id="">
                                 <th>idhorario</th>
-                                <th>num_usuario</th>
-                                <th>fecha_registro</th>
-                                <th>ubicacion</th>
-                                <th>Acciones</th>
+                                <th>Folio</th>
+                                <th>Fecha de Registro</th>
+                                <th>Ubicación</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody style="color:#fffff; background: transparent;" id=""></tbody>

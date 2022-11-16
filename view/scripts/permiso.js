@@ -26,6 +26,7 @@ function mostrarform(flag) {
 function listar() {
 	tabla = $('#tbllistado').dataTable(
 		{
+			"language": { "sUrl": "./js/dataTables_Espanol.json" },
 			"aProcessing": true,//Activamos el procesamiento del datatables
 			"aServerSide": true,//Paginación y filtrado realizados por el servidor
 			dom: 'Bfrtip',//Definimos los elementos del control de tabla
@@ -46,19 +47,6 @@ function listar() {
 			"bDestroy": true,
 			"iDisplayLength": 20,//Paginación
 			"order": [[0, "desc"]],//Ordenar (columna,orden)
-			language: {
-				zeroRecords: 'No hay registros para mostrar.',
-				search: 'BUSCAR',
-				emptyTable: 'La tabla está vacia.',
-				"oPaginate": {
-					"sFirst": "Primero",
-					"sLast": "Ultimo",
-					"sNext": "Siguiente",
-					"sPrevious": "Anterior"
-				}
-			}
-
 		}).DataTable();
-
 }
 init();
