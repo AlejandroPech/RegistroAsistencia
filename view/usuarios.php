@@ -76,6 +76,18 @@ if (isset($_SESSION["acceso"]) && $_SESSION['acceso']==1)
                             <input type="text" class="form-control" name="cargo" id="cargo" maxlength="20" placeholder="Cargo">
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Hora Entrada (*):</label>
+                            <input type="time" class="form-control" name="hora_entrada" id="hora_entrada" required>
+                          </div>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Hora Salida (*):</label>
+                            <input type="time" class="form-control" name="hora_salida" id="hora_salida" required>
+                          </div>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Codigo Empleado (*):</label>
+                            <input type="text" class="form-control" name="num_usuario" id="num_usuario" maxlength="20" placeholder="Codigo de empleado" required>
+                          </div>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Usuario (*):</label>
                             <input type="text" class="form-control" name="login" id="login" maxlength="20" placeholder="Usuario" required>
                           </div>

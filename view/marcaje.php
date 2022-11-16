@@ -56,10 +56,10 @@ if (isset($_SESSION["marcaje"]) &&  $_SESSION['marcaje'] == 1)
                     <table style="background: transparent;" width='100%' id='tbl-Marcaje' class='table dt-responsive responsive hover nowrap'>
                         <thead>
                             <tr style="color:#fffff; background: transparent;" id="">
-                                <th>NumEmpleado</th>
-                                <th>Fecha</th>
-                                <th>Ubicación</th>
-                                <th>Imagen</th>
+                                <th>idhorario</th>
+                                <th>num_usuario</th>
+                                <th>fecha_registro</th>
+                                <th>ubicacion</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>

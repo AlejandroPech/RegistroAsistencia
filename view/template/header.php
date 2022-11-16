@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Aafy</title>
+  <link rel="icon" type="image/png" href="https://pagosreferencia.yucatan.gob.mx/favicon.ico">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="css/fonts.css">
   <!-- Font Awesome Icons -->
@@ -177,12 +178,12 @@
             ?>
 
             <?php
-              if (isset($_SESSION['ayuda']) && $_SESSION['ayuda'] == 1) {
+              if (isset($_SESSION['incidencias']) && $_SESSION['incidencias'] == 1) {
                 echo '<li class="nav-item">
-                  <a href="./rrhh.php" class="nav-link active">
+                  <a href="./incidencias.php" class="nav-link active">
                   <i class="nav-icon fas fa-columns"></i>
                     <p>
-                      Ayuda 
+                      Incidencias 
                     </p>
                   </a>
                 </li>';

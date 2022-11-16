@@ -47,10 +47,10 @@ if (isset($_SESSION["facial"]) &&  $_SESSION['facial'] == 1)
                 <table style="background: transparent;" width='100%' id='tbl-Images' class='table dt-responsive responsive'>
                     <thead>
                         <tr style="color:#fffff; background: transparent;" id="">
-                            <th>No. Empleado</th>
-                            <th>Fecha Registro</th>
-                            <th>Ubicación</th>
-                            <th>sNombre</th>
+                            <th>idhorario</th>
+                            <th>num_usuario</th>
+                            <th>fecha_registro</th>
+                            <th>ubicacion</th>
                             <th></th>
                         </tr>
                     </thead>

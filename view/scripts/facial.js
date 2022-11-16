@@ -72,15 +72,15 @@ function listar() {
                     selector: 'td:nth-child(2)'
                 },
                 "columnDefs": [
-                    { "name": "name", "data": "name", "className": "text-center", "targets": 0 }
-                    , { "name": "dtFecha", "data": "dtFecha", "className": "text-center", "targets": 1 }
-                    , { "name": "iIp", "data": "iIp", "className": "text-center", "targets": 2 }
-                    , { "name": "path", "data": "path", "className": "", "targets": 3, "visible": false }
+                    { "name": "idhorario", "data": "idhorario", "className": "text-center", "targets": 0, "visible": false  }
+                    , { "name": "num_usuario", "data": "num_usuario", "className": "text-center", "targets": 1 }
+                    , { "name": "fecha_registro", "data": "fecha_registro", "className": "text-center", "targets": 2 }
+                    , { "name": "ubicacion", "data": "ubicacion", "className": "", "targets": 3, "visible": true }
                     , {
                         "name": "sAcciones", "data": "sAcciones", "className": "", "targets": 4,
                         render: function (data, type, row, meta) {
                             return type === 'display' ?
-                                `<button onclick="fnDescargarImagen('${row.path}','${row.name}')" class="btn update btn-primary select-item"><i class="mdi mdi-file-image"></i> Imagen</button>` : data;
+                                `<button onclick="fnDescargarImagen('${row.idhorario}','${row.num_usuario}')" class="btn update btn-primary select-item"><i class="mdi mdi-file-image"></i> Imagen</button>` : data;
                         }
                     }
                 ],
@@ -89,10 +89,10 @@ function listar() {
             DTImages.clear().draw();
             $.each(jresult.data, function (_index, _oData) {
                 DTImages.row.add({
-                    "name": _oData.name
-                    , "dtFecha": _oData.date
-                    , "iIp": _oData.ip
-                    , "path": _oData.path
+                      "idhorario": _oData.idhorario
+                    , "num_usuario": _oData.num_usuario
+                    , "fecha_registro": _oData.fecha_registro
+                    , "ubicacion": _oData.ubicacion
                     , "sAcciones": ""
                 });
             });
@@ -106,11 +106,11 @@ function listar() {
     });
 }
 
-function fnDescargarImagen(sPath, sEmpleado) {
+function fnDescargarImagen(sidHorario,sEmpleado) {
     $.ajax({
         url: "../controller/facial.php?op=downloadImageFtp"
         , type: "post"
-        , data: { "path": sPath }
+        , data: { "idhorario": sidHorario }
         , beforeSend: function (request) {
             $.blockUI({ message: '<div class="spinner-border text-primary" role="status"></div><h3>Un momento por favor...</h3>' });
         }
@@ -121,7 +121,7 @@ function fnDescargarImagen(sPath, sEmpleado) {
                 Swal.fire({ icon: 'error', title: 'Mensaje', text: jresult.sError });
             }//fin:if(jresult.lError)
             else {
-                sTemplate = `<img src="data:image/png;base64, ${jresult.data}" width="400" height="600" style="display: block;margin-left: auto;margin-right: auto; ">`;
+                sTemplate = `<img src="data:image/png;base64, ${jresult.data.imagen}" width="400" height="600" style="display: block;margin-left: auto;margin-right: auto; ">`;
                 $('div#divmodal div.modal-body').html(sTemplate);
                 $('div#divmodal h5.modal-titulo').html("Empleado: " + sEmpleado);
                 $('div#divmodal').modal('show');

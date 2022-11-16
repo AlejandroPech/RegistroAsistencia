@@ -184,6 +184,11 @@ function mostrar(idusuario) {
         $("#telefono").val(data.telefono);
         $("#email").val(data.email);
         $("#cargo").val(data.cargo);
+
+        $("#hora_entrada").val(data.hora_entrada);
+        $("#hora_salida").val(data.hora_salida);
+        $("#num_usuario").val(data.num_usuario);
+        
         $("#login").val(data.login);
         $("#clave").val(data.clave);
         $("#imagenmuestra").show();
@@ -199,8 +204,6 @@ function mostrar(idusuario) {
 
 //Función para desactivar registros
 function desactivar(idusuario) {
-
-
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {

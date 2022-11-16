@@ -11,7 +11,7 @@ else
 {
 require 'template/header.php';
 
-if (isset($_SESSION['recursoshumanos']) && $_SESSION['recursoshumanos'] == 1)
+if (isset($_SESSION['incidencias']) && $_SESSION['incidencias'] == 1)
 {
 
 

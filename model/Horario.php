@@ -29,5 +29,26 @@ Class Horario
 
         return $sw;
     }
+
+    public function consultar($fecha_ini,$fecha_fin,$id_usuario){
+        $sql = "select h.idhorario,h.fecha_registro,h.ubicacion,uh.num_usuario from usuario_horario uh 
+        join horario h
+        on h.idhorario = uh.idhorario
+        where (h.fecha_registro between '$fecha_ini' and '$fecha_fin') ";
+
+        if($id_usuario > 0){
+            $sql .= "and num_usuario = '$id_usuario'";
+        }
+
+        $respuesta = ejecutarConsulta($sql);
+        return $respuesta;
+    }
+
+    public function verImagen($idhorario){
+        $sql = " select imagen from horario
+        where idhorario = '$idhorario'";
+        $respuesta = ejecutarConsulta($sql);
+        return $respuesta;
+    }
 }
 ?>

@@ -12,6 +12,9 @@ $cargo=isset($_POST["cargo"])? limpiarCadena($_POST["cargo"]):"";
 $login=isset($_POST["login"])? limpiarCadena($_POST["login"]):"";
 $clave=isset($_POST["clave"])? limpiarCadena($_POST["clave"]):"";
 $imagen=isset($_POST["imagen"])? limpiarCadena($_POST["imagen"]):"";
+$numEmpleado=isset($_POST["num_usuario"])? limpiarCadena($_POST["num_usuario"]):"";
+$horaEntrada=isset($_POST["hora_entrada"])? limpiarCadena($_POST["hora_entrada"]).":00":"";
+$horaSalida=isset($_POST["hora_salida"])? limpiarCadena($_POST["hora_salida"]).":00":"";
 
 switch ($_GET["op"]){
 	case 'guardaryeditar':
@@ -35,11 +38,11 @@ switch ($_GET["op"]){
 		$clavehash=hash("SHA256",$clave);
 
 		if (empty($idusuario)){
-			$rspta=$usuario->insertar($nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$_POST['permiso']);
+			$rspta=$usuario->insertar($nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$_POST['permiso'],$numEmpleado,$horaEntrada,$horaSalida);
 			echo $rspta ? 1 : 2;
 		}
 		else {
-			$rspta=$usuario->editar($idusuario,$nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$_POST['permiso']);
+			$rspta=$usuario->editar($idusuario,$nombre,$telefono,$email,$cargo,$login,$clavehash,$base64,$_POST['permiso'],$numEmpleado,$horaEntrada,$horaSalida);
 			echo $rspta ? 3 : 4;
 		}
 	break;
