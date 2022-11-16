@@ -127,7 +127,7 @@ function fnDescargarImagen(sidHorario,sEmpleado) {
                 $('div#divmodal div.modal-body').html(sTemplate);
                 $('div#divmodal h5.modal-titulo').html("Empleado: " + sEmpleado);
                 $('div#divmodal').modal('show');
-            }//fin:else            
+            }//fin:else
         }
         , error: function (xhrCS, statusCS) {
             $.unblockUI();
