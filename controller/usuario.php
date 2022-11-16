@@ -20,7 +20,7 @@ $base64 = "";
 switch ($_GET["op"]){
 	case 'guardaryeditar':
 
-		if (!file_exists($_FILES['imagen']['tmp_name']) && is_uploaded_file($_FILES['imagen']['tmp_name']))
+		if (file_exists($_FILES['imagen']['tmp_name']) && is_uploaded_file($_FILES['imagen']['tmp_name']))
 		{
 			$ext = explode(".", $_FILES["imagen"]["name"]);
 			if ($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png")
