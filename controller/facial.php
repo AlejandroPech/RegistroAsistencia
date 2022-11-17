@@ -88,10 +88,14 @@ switch ($_GET["op"]) {
             while ($reg=$rspta->fetch_object()){
                 $sBase64 = $reg;
             }
+            if(!is_string($sBase64->imagen) || !base64_decode($sBase64->imagen)){
+                $sError = "No se pudo obtener la imagen";
+                $lError = true;
+            }
         }//fin:try
         catch (Exception $Exc) {
             $sError = $Exc->getMessage();
-            $lError = 99;
+            $lError = true;
         }
         $response = [ "lError" => $lError ,"sError" => $sError, "data" => $sBase64];
         echo json_encode($response);
