@@ -44,6 +44,7 @@ if (isset($_SESSION['incidencias']) && $_SESSION['incidencias'] == 1)
                 <th>Fecha de ateción</th>
                 <th>atendida</th>
                 <th>idhorario</th>
+                <th>aceptada</th>
               </thead>
               <tbody>
               </tbody>

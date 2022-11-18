@@ -125,7 +125,7 @@ function listar() {
                     , { "name": "fecha_atendida", "data": "fecha_atendida", "className": "text-center", "targets": 7 }
                     , { "name": "latendida", "data": "latendida", "className": "text-center", "targets": 8, "visible": false }
                     , { "name": "idhorario", "data": "idhorario", "className": "text-center", "targets": 9, "visible": false }
-                    , { "name": "laceptada", "data": "laceptada", "className": "text-center", "targets": 9, "visible": false }
+                    , { "name": "laceptada", "data": "laceptada", "className": "text-center", "targets": 10, "visible": false }
                 ],
             }).DataTable();
             DTIncidencias.clear().draw();
@@ -141,7 +141,7 @@ function listar() {
                     , "fecha_atendida": _oData.fecha_atendida
                     , "latendida": _oData.latendida
                     , "laceptada": _oData.laceptada
-                    , "idhorario": ""
+                    , "idhorario": _oData.idhorario
                 });
             });
             DTIncidencias.draw();
