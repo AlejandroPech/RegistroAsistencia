@@ -2,7 +2,20 @@ let DTIncidencias;
 $(document).ready(function () {
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
-    })
+    });
+    $("#laceptada").change(function (e) {
+        if(e.target.value == "" || e.target.value == "0"){
+            document.getElementById("ubicacion").disabled = true;
+            document.getElementById("fecha_registro").disabled = true;
+            document.getElementById("ubicacion").value = "";
+            document.getElementById("fecha_registro").value = "";
+        }else{
+            document.getElementById("ubicacion").disabled = false;
+            document.getElementById("fecha_registro").disabled = false;
+            document.getElementById("ubicacion").required = true;
+            document.getElementById("fecha_registro").required = true;
+        }
+    });
     document.getElementById("listadoregistros").hidden = false;
     document.getElementById("formularioregistros").hidden = false;
     mostrarform(false);
@@ -14,6 +27,7 @@ function limpiar() {
     $("#ubicacion").val("");
     $("#fecha_registro").val("");
     $("#observacion").val("");
+    $("#laceptada").val("");
 }
 
 //Función mostrar formulario
@@ -76,6 +90,14 @@ function listar() {
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },
+                "rowCallback": function( row, data, index  ){
+                    $('td', row).css('color', '#000000');
+                    if (data.laceptada == "1") {
+                        $('td', row).css('background-color', '#d4edda');
+                    }else if (data.laceptada == "0"){
+                        $('td', row).css('background-color', '#ff9090');
+                    }
+                },
                 "columnDefs": [
                     {
                         "name": "sAcciones", "data": "sAcciones", "className": "", "targets": 0,
@@ -103,6 +125,7 @@ function listar() {
                     , { "name": "fecha_atendida", "data": "fecha_atendida", "className": "text-center", "targets": 7 }
                     , { "name": "latendida", "data": "latendida", "className": "text-center", "targets": 8, "visible": false }
                     , { "name": "idhorario", "data": "idhorario", "className": "text-center", "targets": 9, "visible": false }
+                    , { "name": "laceptada", "data": "laceptada", "className": "text-center", "targets": 9, "visible": false }
                 ],
             }).DataTable();
             DTIncidencias.clear().draw();
@@ -117,6 +140,7 @@ function listar() {
                     , "fecha_incidencia": _oData.fecha_incidencia
                     , "fecha_atendida": _oData.fecha_atendida
                     , "latendida": _oData.latendida
+                    , "laceptada": _oData.laceptada
                     , "idhorario": ""
                 });
             });
@@ -148,6 +172,7 @@ function guardaryeditar(e) {
     e.preventDefault(); //No se activará la acción predeterminada del evento
     $("#btnGuardar").prop("disabled", true);
     var formData = new FormData($("#formulario")[0]);
+    const value = Object.fromEntries(formData.entries());
     $.ajax({
         url: "../controller/incidencia.php?op=editar",
         type: "POST",

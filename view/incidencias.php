@@ -36,8 +36,8 @@ if (isset($_SESSION['incidencias']) && $_SESSION['incidencias'] == 1)
               <thead>
                 <th>Opciones</th>
                 <th>Id Incidencia</th>
-                <th>Folio empleado</th>
                 <th>Tipo Incicencia</th>
+                <th>Folio empleado</th>
                 <th>Descripcion peticion</th>
                 <th>Descripcion respuesta</th>
                 <th>Fecha incidencia</th>
@@ -65,19 +65,25 @@ if (isset($_SESSION['incidencias']) && $_SESSION['incidencias'] == 1)
                     <label>Fecha Incidencia:</label>
                     <input type="datetime-local" class="form-control" name="fecha_incidencia" id="fecha_incidencia" readonly>
                   </div>
+                  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <label>Status:</label>
+                    <select class="form-control" name="laceptada" id="laceptada" value="" required>
+                      <option value="" selected>Seleccione una opción</option>
+                      <option value="1">Aceptar</option>
+                      <option value="0">Rechazar</option>
+                    </select>
+                  </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Ubicacion:</label>
-                    <input type="text" class="form-control" name="ubicacion" id="ubicacion" maxlength="100"
-                      placeholder="Ubicación">
+                    <input type="text" class="form-control" name="ubicacion" id="ubicacion" maxlength="100" placeholder="Ubicación" disabled>
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Fecha de Registro:</label>
-                    <input type="datetime-local" class="form-control" name="fecha_registro" id="fecha_registro"
-                      required>
+                    <input type="datetime-local" class="form-control" name="fecha_registro" id="fecha_registro" disabled>
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Respuesta:</label>
-                    <textarea class="form-control" name="observacion" id="observacion" rows="4" value=""></textarea>
+                    <textarea class="form-control" name="observacion" id="observacion" rows="4" value="" required></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i>
