@@ -9,8 +9,17 @@ Class Incidencia
 	{
 
 	}
-    public function consultar(){
-        $sql = "select * from incidencias order by fecha_creacion desc";
+    public function consultar($opcion){
+        $sql = "select * from incidencias ";
+
+        if($opcion != "-1"){
+            if(!isset($opcion) || $opcion == ""){
+                $sql .= "where latendida = '0'";
+            }else{
+                $sql .= "where laceptada = '$opcion'";
+            }
+        }
+        $sql .= "order by fecha_creacion desc";
         $respuesta = ejecutarConsulta($sql);
         return $respuesta;
     }

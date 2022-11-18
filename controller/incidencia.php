@@ -5,11 +5,12 @@ require_once "../model/Incidencia.php";
 $incidencia=new Incidencia();
 switch ($_GET["op"]){
     case 'getIncidencias':
+        $opcion = $_POST["opcion"];
         $aRespuesta = [];
         $sError = "";
         $lError = false;
         try{
-            $rspta=$incidencia->consultar();
+            $rspta=$incidencia->consultar($opcion);
 
             while ($reg=$rspta->fetch_object()){
                 $aRespuesta[]=$reg;

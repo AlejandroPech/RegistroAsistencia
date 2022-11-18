@@ -23,18 +23,30 @@ if (isset($_SESSION['incidencias']) && $_SESSION['incidencias'] == 1)
     <div class="row">
       <div class="col-md-12">
         <div class="box">
-          <div class="box-header with-border">
-            <h1 class="box-title">Incidencias</h1>
-            <div class="box-tools pull-right">
-            </div>
-            <br>
-          </div>
           <!-- /.box-header -->
           <!-- centro -->
+          <div class="col-12 row" style="display: flex; justify-content: space-around; align-items: center;"  >
+              <div class="col-4"  >
+                  <div>
+                      <label class="text-center">Filtrar por status</label>
+                      <select class="form-control" name="opcionfiltro" id="opcionfiltro" value="" required>
+                        <option value="-1" selected>Todas</option>
+                        <option value="1">Aceptadas</option>
+                        <option value="0">Rechazadas</option>
+                        <option value="">No atendidas</option>
+                      </select>
+                  </div>
+              </div>
+              <div  >
+                  <button onclick="listar();" class="btn btn-primary">Consultar</button>
+              </div>
+          </div>
+          <br />
           <div id="listadoregistros" data-topline="1" hidden>
             <table style="background: transparent;" width='100%' id='tbl-Incidencias' class='table dt-responsive responsive'>
               <thead>
                 <th>Opciones</th>
+                <th>Status</th>
                 <th>Id Incidencia</th>
                 <th>Tipo Incicencia</th>
                 <th>Folio empleado</th>
@@ -44,7 +56,6 @@ if (isset($_SESSION['incidencias']) && $_SESSION['incidencias'] == 1)
                 <th>Fecha de ateción</th>
                 <th>atendida</th>
                 <th>idhorario</th>
-                <th>aceptada</th>
               </thead>
               <tbody>
               </tbody>
