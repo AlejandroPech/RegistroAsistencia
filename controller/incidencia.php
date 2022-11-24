@@ -47,5 +47,33 @@ switch ($_GET["op"]){
         $response = [ "lError" => $lError ,"sError" => $sError, "data" => $aRespuesta];
         echo json_encode($response);
     break;
+    case 'insertar':
+        $aRespuesta = 0;
+        $sError = "";
+        $lError = false;
+        try{
+
+            if (!isset($_POST["idhorario"]) || !isset($_POST["num_usuario"]) || !isset($_POST["tipo_incidencia"]) || !isset($_POST["des_peticion"]) || !isset($_POST["fecha_incidencia"])){
+                $lError = true;
+                $sError = "faltan parametros";
+            }
+
+            if($sError == ""){
+                $idhorario = $_POST["idhorario"];
+                $num_usuario = $_POST["num_usuario"];
+                $tipo_incidencia = $_POST["tipo_incidencia"];
+                $des_peticion = $_POST["des_peticion"];
+                $fecha_incidencia = $_POST["fecha_incidencia"];
+                $aRespuesta=$incidencia->insertar($idhorario, $num_usuario, $tipo_incidencia, $des_peticion, $fecha_incidencia);
+            }
+        }
+        catch (Exception $Exc) {
+            $sError = $Exc->getMessage();
+            $lError = true;
+        }
+        $response = [ "lError" => $lError ,"sError" => $sError, "data" => $aRespuesta];
+        header('Content-type: application/json');
+        echo json_encode($response);
+    break;
 }
 ?>

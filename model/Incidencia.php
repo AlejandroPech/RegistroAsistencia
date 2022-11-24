@@ -51,5 +51,13 @@ Class Incidencia
 
         return $respuesta;
     }
+
+    public function insertar($idhorario, $num_usuario, $tipo_incidencia, $des_peticion, $fecha_incidencia){
+        $sql = " INSERT INTO `incidencias` (`idhorario`, `num_usuario`,`tipo_incidencia` , `observacion`, `des_peticion`, `fecha_incidencia`, `fecha_atendida`, `fecha_creacion`, `fecha_modificacion`, `lactivo`, `latendida`, `laceptada`) VALUES
+        ('$idhorario','$num_usuario','$tipo_incidencia','','$des_peticion','$fecha_incidencia',null,Now(),null,1,0,null)";
+        $respuesta = ejecutarConsulta_retornarID($sql);
+
+        return $respuesta;
+    }
 }
 ?>

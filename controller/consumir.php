@@ -14,7 +14,7 @@ switch ($_GET["op"]){
         $rspta=$horario->insertar($fecharegistro,$imagen,$ubicacion,$numusuario);
         echo $rspta;
 	break;
-        case 'obtenerasistencias':
+    case 'obtenerasistencias':
         $aRespuesta     = [];
         $aRegistros     = [];
         $rspta          = [];
@@ -76,6 +76,6 @@ switch ($_GET["op"]){
         $response = [ "lError" => $lError ,"sError" => $sError, "data" => $aRespuesta];
         header('Content-type: application/json');
         echo json_encode($response);
-        break;
+    break;
 }
 ?>
