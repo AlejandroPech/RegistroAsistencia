@@ -49,25 +49,27 @@ switch ($_GET["op"]) {
                 $lError = true;
                 $sError = "falta el parametro personId";
             }
-            if (!isset($_POST["startTime"]) || $_POST["startTime"] == ""){
-                $dateIni    = date('Y-m-d') . ' 00:00:00';
-                $datefinal  = date('Y-m-d') . ' 23:59:59';
-            }
-            else if (!isset($_POST["endTime"]) || $_POST["endTime"] == ""){
-                $dateIni = (new DateTime($_POST["startTime"] . " 00:00:00"))->format('Y-m-d H:i:s');
-                $datefinal = (new DateTime($_POST["startTime"] . " 23:59:59"))->format('Y-m-d H:i:s');
-            }//fin: else if 
-            else {
-                $dateIni    = (new DateTime($_POST["startTime"] . " 00:00:00"))->format('Y-m-d H:i:s');
-                $datefinal  = (new DateTime($_POST["endTime"] . " 23:59:59"))->format('Y-m-d H:i:s');
-            }//fin:else
-
-            $rspta = $horario->consultar($dateIni,$datefinal,$_POST["personId"]);
-
-            $data= Array();
-
-            while ($reg=$rspta->fetch_object()){
-                $aRespuesta[]=$reg;
+            if($sError == ""){
+                if (!isset($_POST["startTime"]) || $_POST["startTime"] == ""){
+                    $dateIni    = date('Y-m-d') . ' 00:00:00';
+                    $datefinal  = date('Y-m-d') . ' 23:59:59';
+                }
+                else if (!isset($_POST["endTime"]) || $_POST["endTime"] == ""){
+                    $dateIni = (new DateTime($_POST["startTime"] . " 00:00:00"))->format('Y-m-d H:i:s');
+                    $datefinal = (new DateTime($_POST["startTime"] . " 23:59:59"))->format('Y-m-d H:i:s');
+                }//fin: else if 
+                else {
+                    $dateIni    = (new DateTime($_POST["startTime"] . " 00:00:00"))->format('Y-m-d H:i:s');
+                    $datefinal  = (new DateTime($_POST["endTime"] . " 23:59:59"))->format('Y-m-d H:i:s');
+                }//fin:else
+    
+                $rspta = $horario->consultar($dateIni,$datefinal,$_POST["personId"]);
+    
+                $data= Array();
+    
+                while ($reg=$rspta->fetch_object()){
+                    $aRespuesta[]=$reg;
+                }
             }
         }//fin:try
         catch (Exception $Exc) {

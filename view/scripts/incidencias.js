@@ -161,7 +161,7 @@ function mostrar(data) {
     mostrarform(true);
     $("#laceptada").val(data.laceptada).change();
     $("#idincidencia").val(data.idincidencia);
-    $("#idhorario").val(data.idhorario)
+    $("#idhorario").val(data.idhorario);
     $("#num_usuario").val(data.num_usuario);
     $("#observacion").val(data.observacion);
     

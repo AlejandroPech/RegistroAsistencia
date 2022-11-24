@@ -21,12 +21,20 @@ Class Horario
     }
 
     public function consultar($fecha_ini,$fecha_fin,$id_usuario){
-        $sql = "select idhorario,fecha_registro,ubicacion,num_usuario from horario
+        $sql = "select * from horario
         where (fecha_registro between '$fecha_ini' and '$fecha_fin') ";
 
         if($id_usuario > 0){
             $sql .= "and num_usuario = '$id_usuario'";
         }
+
+        $respuesta = ejecutarConsulta($sql);
+        return $respuesta;
+    }
+
+    public function consultarUsuario($num_usuario){
+        $sql = "select * from usuario u 
+        where num_usuario = '$num_usuario'";
 
         $respuesta = ejecutarConsulta($sql);
         return $respuesta;
