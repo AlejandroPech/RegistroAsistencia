@@ -59,6 +59,7 @@ switch ($_GET["op"]){
                         }
                         $obj->tipo_registro = $reg->tipo_registro;
                         $obj->fecha_registro = $reg->fecha_registro;
+                        $obj->id_horario = $reg->idhorario;
                         $aRegistros[]=$obj;
                 }
                 
