@@ -24,6 +24,12 @@ Class Incidencia
         return $respuesta;
     }
 
+    public function consultarIncidencias($incidencia)
+    {
+        $sql = "select * from incidencias where num_usuario = '$incidencia' order by fecha_creacion desc";
+        $respuesta = ejecutarConsulta($sql);
+        return $respuesta;
+    }
     public function editarincidencia($idincidencia,$observacion,$idhorario,$num_usuario,$ubicacion,$fecha_registro,$laceptada){
         $sqlupdate = "";
         $respuesta = 0;
@@ -39,7 +45,6 @@ Class Incidencia
                 $respuesta = ejecutarConsulta($sql);
             }
         }
-        
 
         if((is_numeric($respuesta) && $respuesta > 0) || $laceptada != 1){
             $sql = "update incidencias set observacion = '$observacion', fecha_atendida = NOW(), fecha_modificacion = NOW(), latendida = 1, laceptada = '$laceptada'"; 

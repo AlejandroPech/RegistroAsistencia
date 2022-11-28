@@ -37,7 +37,6 @@ switch ($_GET["op"]){
         $fecha_registro = isset($_POST["fecha_registro"])? limpiarCadena($_POST["fecha_registro"]):"";
         try{
             $rspta=$incidencia->editarincidencia($idincidencia,$observacion,$idhorario,$num_usuario,$ubicacion,$fecha_registro,$laceptada);
-
             $aRespuesta =  $rspta ? 1 : 2;
         }
         catch (Exception $Exc) {
@@ -52,7 +51,6 @@ switch ($_GET["op"]){
         $sError = "";
         $lError = false;
         try{
-
             if (!isset($_POST["idhorario"]) || !isset($_POST["num_usuario"]) || !isset($_POST["tipo_incidencia"]) || !isset($_POST["des_peticion"]) || !isset($_POST["fecha_incidencia"])){
                 $lError = true;
                 $sError = "faltan parametros";

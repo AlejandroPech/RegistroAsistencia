@@ -157,9 +157,7 @@ function guardaryeditar(e) {
                 });
                 $("#btnGuardar").prop("disabled", false);
             }
-            
         }
-
     });
     limpiar();
 }

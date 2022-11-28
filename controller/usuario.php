@@ -151,8 +151,6 @@ switch ($_GET["op"]){
 		}else{
 			echo 1;
 		}
-
-
 	break;
 
 	case 'salir':
